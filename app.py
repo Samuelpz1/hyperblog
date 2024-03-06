@@ -17,8 +17,16 @@ lottie_coding = load_lottie_url("https://lottie.host/4d84de5d-2c3f-4893-ba22-027
 st_lottie(lottie_coding,height = 300 , key = "car")
 
 st.sidebar.header("PRICE ADVISOR")
+df = pd.read_csv("data.csv")
+makes = []
+for i in df['Make']:
+    if i in makes:
+        makes = makes
+    else:
+        makes.append(i)
 
-brand = st.sidebar.selectbox("Vechicle's brand",['Chevrolet','Ford','Honda','Nissan','Toyota'],1)
+print(makes)
+brand = st.sidebar.selectbox("Vechicle's brand",makes,1)
 selected_model = st.sidebar.selectbox("Vechicle's model",['F-150','Civic','Altima','Camry','Silverado'],1)
 year = st.sidebar.slider("Vehicle's Year",2010 ,2024, 2017)
 mileage = st.sidebar.slider("Vechicle's mileage",0,160000,35000)
